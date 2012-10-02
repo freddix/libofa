@@ -1,0 +1,11 @@
+--- libofa-0.9.3/lib/JAMA/tnt_math_utils.h.orig	2006-05-10 19:58:50.000000000 +0200
++++ libofa-0.9.3/lib/JAMA/tnt_math_utils.h	2006-07-18 23:32:28.288069250 +0200
+@@ -30,7 +30,7 @@
+ {
+ 	
+ 	if (a== 0)
+-		return abs(b);
++		return fabs(b);
+ 	else
+ 	{
+ 		Real c = b/a;

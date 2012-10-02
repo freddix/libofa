@@ -1,0 +1,9 @@
+--- libofa-0.9.3/libofa.pc.in.orig	2006-05-10 19:58:51.000000000 +0200
++++ libofa-0.9.3/libofa.pc.in	2006-07-18 23:24:42.126936000 +0200
+@@ -8,5 +8,5 @@
+ URL: http://www.musicdns.org/
+ Version: @VERSION@
+ Requires: fftw3
+-Libs: -L${libdir} -lofa -lexpat -lm
++Libs: -L${libdir} -lofa -lm
+ Cflags: -I${includedir}
