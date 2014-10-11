@@ -1,7 +1,7 @@
 Summary:	Open Fingerprint Architecture - identyfying a piece of music with just sound
 Name:		libofa
 Version:	0.9.3
-Release:	13
+Release:	14
 License:	GPL v2 or Adaptive Public License
 Group:		Libraries
 Source0:	http://musicip-libofa.googlecode.com/files/%{name}-%{version}.tar.gz
@@ -28,6 +28,10 @@ piece itself.
 Summary:	Header files for libofa library
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	curl-devel
+Requires:	expat-devel
+Requires:	fftw3-devel
+Requires:	libstdc++-devel
 
 %description devel
 Header files for libofa library.
@@ -38,7 +42,7 @@ Header files for libofa library.
 %patch1 -p1
 %patch2 -p0
 
-sed -i -e 's| examples||g' Makefile.am
+%{__sed} -i -e 's| examples||g' Makefile.am
 
 %build
 %{__libtoolize}
@@ -55,6 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -70,7 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libofa.so
-%{_libdir}/libofa.la
 %{_includedir}/ofa1
 %{_pkgconfigdir}/libofa.pc
 
